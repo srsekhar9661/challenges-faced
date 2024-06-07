@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ action }} Template</title>
+</head>
+<body>
+    <h1>{{ action }} Template</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% if action == 'Update' %}
+            <input type="hidden" name="template_id" value="{{ template.pk }}">
+        {% endif %}
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{% if action == 'Update' %}{{ template.name }}{% endif %}">
+        </p>
+        <p>
+            <label for="content">Content:</label>
+            <textarea id="content" name="content">{% if action == 'Update' %}{{ template.content }}{% endif %}</textarea>
+        </p>
+        <p>
+            <label for="dependent_templates">Dependent Templates:</label>
+            <select id="dependent_templates" name="dependent_templates" multiple>
+                {% for tmpl in templates %}
+                    <option value="{{ tmpl.pk }}" type="checkbox"
+                    {% if action == 'Update' and tmpl in template.dependent_templates.all %}
+                        selected
+                    {% endif %}
+                    >{{ tmpl.name }}</option>
+                {% endfor %}
+            </select>
+        </p>
+        <button type="submit">{{ action }}</button>
+    </form>
+    <a href="{% url 'template_list' %}">Back to list</a>
+</body>
+</html>

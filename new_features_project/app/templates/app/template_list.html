@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template List</title>
+</head>
+<body>
+    <h1>Template List</h1>
+    {% for template in templates %}
+        <p><a href="{% url 'template_detail' template.pk %}">{{ template.name }}</a></p>
+    {% endfor %}
+    <a href="{% url 'create_template' %}">Create a new template</a>
+</body>
+</html>

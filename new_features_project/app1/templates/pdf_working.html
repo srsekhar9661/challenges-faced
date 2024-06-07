@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #display-div {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm" method="POST">
+        {% csrf_token %}
+        <label for="select1">Select 1:</label>
+        <select id="select1">
+            <option value="Option 1">Option 1</option>
+            <option value="Option 2">Option 2</option>
+        </select>
+        <br><br>
+        <label for="select2">Select 2:</label>
+        <select id="select2">
+            <option value="Option A">Option A</option>
+            <option value="Option B">Option B</option>
+        </select>
+        <br><br>
+        <button type="button" id="addButton">Add Mapping Elements</button>
+        <input type="hidden" name="dataObject" id="dataObject">
+    </form>
+    <div id="display-div"></div>
+    <br>
+    <button type="button" id="submitButton">Submit Form</button>
+
+    <script>
+        $(document).ready(function() {
+            var dataObject = {};
+
+            $('#addButton').click(function() {
+                // Get the values from the select elements
+                var select1Value = $('#select1').val();
+                var select2Value = $('#select2').val();
+
+                // Create an entry with the values
+                var entryKey = 'Item ' + (Object.keys(dataObject).length + 1);
+                dataObject[entryKey] = {
+                    select1: select1Value,
+                    select2: select2Value
+                };
+
+                // Display the object content in the div
+                displayObject();
+            });
+
+            function displayObject() {
+                var displayDiv = $('#display-div');
+                displayDiv.empty(); // Clear previous content
+
+                $.each(dataObject, function(key, value) {
+                    var itemString = key + ': Select 1 - ' + value.select1 + ', Select 2 - ' + value.select2;
+                    displayDiv.append('<p>' + itemString + '</p>');
+                });
+            }
+
+            $('#submitButton').click(function() {
+                // Serialize the object data to a hidden input field
+                $('#dataObject').val(JSON.stringify(dataObject));
+
+                // Change the action attribute of the form
+                $('#myForm').attr('action', '{% url "view2" %}');
+
+                // Submit the form synchronously
+                $('#myForm')[0].submit();
+            });
+        });
+    </script>
+</body>
+</html>

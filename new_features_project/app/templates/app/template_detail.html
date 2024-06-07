@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ template.name }}</title>
+</head>
+<body>
+    <h1>{{ template.name }}</h1>
+    <p>{{ template.content }}</p>
+    <p>Dependent Templates:</p>
+    <ul>
+        {% for dep_template in template.dependent_templates.all %}
+            <li>{{ dep_template.name }}   ===   {{dep_template.content}}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'update_template' template.pk %}">Edit</a>
+    <a href="{% url 'template_list' %}">Back to list</a>
+</body>
+</html>
