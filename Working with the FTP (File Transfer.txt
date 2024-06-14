@@ -1,0 +1,12 @@
+Working with the FTP (File Transfer Protocol)
+
+Use the YouTube video to through the process
+video link : https://www.youtube.com/watch?v=tCftckKivkc
+
+
+
+
+
+After installation of the FileZilla executable file 
+
+* You need to create the User for the FileZilla server
