@@ -13,3 +13,12 @@ class Template(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Narrative(models.Model):
+    subject = models.CharField(max_length=100)
+    age = models.IntegerField()
+    content = models.TextField()
+
+    def __str__(self):
+        return self.subject

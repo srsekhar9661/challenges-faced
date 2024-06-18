@@ -1,0 +1,54 @@
+<!-- narrative_crud.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Narrative CRUD</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Narrative CRUD Operations</h1>
+
+        <!-- Form for adding/updating narratives -->
+        <form method="post" action="{% if narrative %}{% url 'narrative-crud-with-pk' narrative.pk %}{% else %}{% url 'narrative-crud' %}{% endif %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" class="form-control" value="{{ form.subject.value|default_if_none:'' }}">
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" class="form-control" value="{{ form.age.value|default_if_none:'' }}">
+            </div>
+            <div class="form-group">
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" class="form-control" rows="5" placeholder="Write your narrative here..&#10;Eg :&#10;Subject {subject}&#10;Age {age}">{{ form.content.value|default_if_none:'' }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Save</button>
+            {% if narrative %}
+            <a href="{% url 'narrative-crud' %}" class="btn btn-secondary">Cancel</a>
+            {% endif %}
+        </form>
+
+        <!-- List of narratives -->
+        <h2>Narrative List</h2>
+        <ul class="list-group">
+            {% for narrative in narratives %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>{{ narrative.subject }}</span>
+                <div>
+                    <a href="{% url 'narrative-crud-with-pk' narrative.pk %}" class="btn btn-primary btn-sm">Edit</a>
+                    <form method="post" action="{% url 'narrative-crud-with-pk' narrative.pk %}" style="display:inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="_method" value="delete">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
