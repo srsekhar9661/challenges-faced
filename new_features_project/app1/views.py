@@ -34,3 +34,54 @@ def update_template(request, pk):
     else:
         form = TemplateForm(instance=template)
     return render(request, 'template_form.html', {'form':form})
+
+def new(request):
+    return render(request, 'new.html')
+
+# views.py
+from django.shortcuts import get_object_or_404, redirect, render
+from django.views import View
+from .models import Narrative
+from .forms import NarrativeForm
+
+class NarrativeView(View):
+    template_name = 'narrative_crud.html'
+
+    def get(self, request, pk=None):
+        if pk:
+            narrative = get_object_or_404(Narrative, pk=pk)
+            form = NarrativeForm(instance=narrative)
+        else:
+            narrative = None
+            form = NarrativeForm()
+
+        narratives = Narrative.objects.all()
+        context = {
+            'form': form,
+            'narrative': narrative,
+            'narratives': narratives,
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, pk=None):
+        if pk:
+            narrative = get_object_or_404(Narrative, pk=pk)
+            form = NarrativeForm(request.POST, instance=narrative)
+        else:
+            form = NarrativeForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('narrative-crud')
+
+        narratives = Narrative.objects.all()
+        context = {
+            'form': form,
+            'narratives': narratives,
+        }
+        return render(request, self.template_name, context)
+
+    def delete(self, request, pk):
+        narrative = get_object_or_404(Narrative, pk=pk)
+        narrative.delete()
+        return redirect('narrative-crud')

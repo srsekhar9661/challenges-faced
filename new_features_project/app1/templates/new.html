@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show/Hide Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        #new_narrative {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Button to show the form -->
+    <button type="button" class="btn btn-primary" id="display_add_new_narrative">Add New Narrative</button>
+
+    <!-- Div containing the form -->
+    <div>
+        <form action="#" id="new_narrative" method="post">
+            {% csrf_token %}
+            <label for="add_new_narrative">Add New Narrative</label>
+            <textarea name="add_new_narrative" id="add_new_narrative" rows="5" cols="50" placeholder="Write your narrative here..&#10;Eg :&#10;Subject {subject}&#10;Age {age}"></textarea>
+            <br>
+            <button type="submit" class="btn btn-success">Submit</button>&nbsp;
+            <button type="button" id="cancelBtn" class="btn btn-warning">Cancel</button>
+        </form>
+    </div>
+
+    <!-- Javascript functionality for adding new Narrative -->
+    <script>
+        $(document).ready(function(){
+            $('#display_add_new_narrative').click(function(){
+                $('#new_narrative').show();
+                $(this).hide();
+            });
+
+            $('#cancelBtn').click(function(){
+                $('#new_narrative').hide();
+                $('#display_add_new_narrative').show();
+            });
+        });
+    </script>
+</body>
+</html>
