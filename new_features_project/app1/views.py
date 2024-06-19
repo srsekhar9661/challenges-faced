@@ -1,17 +1,22 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 import json
 from .models import Template
 from .forms import TemplateForm
+
+
+def index(request):
+    return render(request, 'index.html')
 
 
 def view1(request):
 
     return render(request, 'pdf_working.html')
 
+
 def view2(request):
     # import ipdb;ipdb.set_trace()
-    return HttpResponse(str(json.loads(request.POST.get('dataObject'))))
+    return JsonResponse(json.loads(request.POST.get('dataObject')))
 
 
 def create_template(request):
@@ -24,6 +29,7 @@ def create_template(request):
         form = TemplateForm()
     return render(request, 'template_form.html', {'form':form})
 
+
 def update_template(request, pk):
     template = get_object_or_404(Template, pk=pk)
     if request.method == 'POST':
@@ -35,14 +41,17 @@ def update_template(request, pk):
         form = TemplateForm(instance=template)
     return render(request, 'template_form.html', {'form':form})
 
+
 def new(request):
     return render(request, 'new.html')
+
 
 # views.py
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 from .models import Narrative
 from .forms import NarrativeForm
+
 
 class NarrativeView(View):
     template_name = 'narrative_crud.html'
@@ -67,6 +76,11 @@ class NarrativeView(View):
         if pk:
             narrative = get_object_or_404(Narrative, pk=pk)
             form = NarrativeForm(request.POST, instance=narrative)
+            _method = request.POST.get('_method',None)
+            # import ipdb;ipdb.set_trace(context=5)
+            if _method and _method.lower() == 'delete':
+                self.delete(request, pk=pk)
+
         else:
             form = NarrativeForm(request.POST)
 
@@ -85,3 +99,5 @@ class NarrativeView(View):
         narrative = get_object_or_404(Narrative, pk=pk)
         narrative.delete()
         return redirect('narrative-crud')
+
+
