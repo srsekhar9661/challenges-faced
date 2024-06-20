@@ -1,0 +1,5 @@
+This is a sample PDF document for redaction.
+The following information is confidential.
+Confidential: This is a secret.
+Please ensure that this sensitive information is redacted.
+
