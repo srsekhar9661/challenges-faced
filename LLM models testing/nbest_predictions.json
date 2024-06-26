@@ -1,0 +1,16 @@
+{
+    "0": [
+        {
+            "text": "The Miami-Dade Aviation Department is looking to modernize and digitize its facilities management operations",
+            "probability": 0.9917904311357629,
+            "start_logit": 3.3586792945861816,
+            "end_logit": 1.9841820001602173
+        },
+        {
+            "text": "",
+            "probability": 0.008209568864237104,
+            "start_logit": 0.3744806945323944,
+            "end_logit": 0.17416918277740479
+        }
+    ]
+}
