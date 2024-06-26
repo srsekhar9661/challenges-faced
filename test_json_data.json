@@ -1,0 +1,382 @@
+{
+    "SUSPECT ADVERSE REACTION REPORT": {
+        "name": "SUSPECT ADVERSE REACTION REPORT",
+        "bounding_box": [
+            301.20001220703125,
+            91.85198974609375,
+            532.7999877929688,
+            114.4119873046875
+        ],
+        "text": ""
+    },
+    "1 PATIENT INITIALS first last": {
+        "name": "1 PATIENT INITIALS first last",
+        "bounding_box": [
+            60.720001220703125,
+            181.3709716796875,
+            144.47999572753906,
+            197.093994140625
+        ],
+        "text": ""
+    },
+    "1a COUNTRY": {
+        "name": "1a COUNTRY",
+        "bounding_box": [
+            146.63999938964844,
+            181.3709716796875,
+            219.1199951171875,
+            197.093994140625
+        ],
+        "text": ""
+    },
+    "2_DateOfBirth": {
+        "name": "2_DateOfBirth",
+        "bounding_box": [
+            221.27999877929688,
+            181.3709716796875,
+            295.9200134277344,
+            197.093994140625
+        ],
+        "text": ""
+    },
+    "2a AGE Years": {
+        "name": "2a AGE Years",
+        "bounding_box": [
+            297.8399963378906,
+            181.3709716796875,
+            327.8399963378906,
+            197.093994140625
+        ],
+        "text": ""
+    },
+    "3_Sex": {
+        "name": "3_Sex",
+        "bounding_box": [
+            327.5539855957031,
+            181.3709716796875,
+            358.5050048828125,
+            197.093994140625
+        ],
+        "text": ""
+    },
+    "4_ReactionOnset": {
+        "name": "4_ReactionOnset",
+        "bounding_box": [
+            361.7980041503906,
+            181.3709716796875,
+            436.9179992675781,
+            197.093994140625
+        ],
+        "text": ""
+    },
+    "7  13 DESCRIBE REACTIONS including relevant testslab data": {
+        "name": "7  13 DESCRIBE REACTIONS including relevant testslab data",
+        "bounding_box": [
+            61.20000076293945,
+            211.303955078125,
+            435.6000061035156,
+            326.8800048828125
+        ],
+        "text": ""
+    },
+    "PatientDied": {
+        "name": "PatientDied",
+        "bounding_box": [
+            450.53900146484375,
+            197.3809814453125,
+            460.9989929199219,
+            215.3809814453125
+        ],
+        "text": ""
+    },
+    "InpatientHospitalisation": {
+        "name": "InpatientHospitalisation",
+        "bounding_box": [
+            450.53900146484375,
+            217.48699951171875,
+            460.9989929199219,
+            235.48699951171875
+        ],
+        "text": ""
+    },
+    "Persistence_Incapacity": {
+        "name": "Persistence_Incapacity",
+        "bounding_box": [
+            450.53900146484375,
+            254.34698486328125,
+            460.9989929199219,
+            272.34698486328125
+        ],
+        "text": ""
+    },
+    "LifeThreatening": {
+        "name": "LifeThreatening",
+        "bounding_box": [
+            450.53900146484375,
+            300.4219970703125,
+            460.9989929199219,
+            318.4219970703125
+        ],
+        "text": ""
+    },
+    "14_SuspectDrugs": {
+        "name": "14_SuspectDrugs",
+        "bounding_box": [
+            58.64139938354492,
+            361.0639953613281,
+            433.99200439453125,
+            386.41497802734375
+        ],
+        "text": ""
+    },
+    "20____1": {
+        "name": "20____1",
+        "bounding_box": [
+            441.4859924316406,
+            372.1429748535156,
+            454.4599914550781,
+            383.44097900390625
+        ],
+        "text": ""
+    },
+    "20____2": {
+        "name": "20____2",
+        "bounding_box": [
+            473.6449890136719,
+            371.46697998046875,
+            486.6180114746094,
+            384.44097900390625
+        ],
+        "text": ""
+    },
+    "20____3": {
+        "name": "20____3",
+        "bounding_box": [
+            500.4519958496094,
+            371.46697998046875,
+            512.5880126953125,
+            384.44097900390625
+        ],
+        "text": ""
+    },
+    "15_DailyDoses": {
+        "name": "15_DailyDoses",
+        "bounding_box": [
+            58.64139938354492,
+            396.2489929199219,
+            294.9280090332031,
+            412.38397216796875
+        ],
+        "text": ""
+    },
+    "16_RoutesOfAdmin": {
+        "name": "16_RoutesOfAdmin",
+        "bounding_box": [
+            299.0710144042969,
+            396.2489929199219,
+            436.4599914550781,
+            410.489990234375
+        ],
+        "text": ""
+    },
+    "17_IndicationsForUse": {
+        "name": "17_IndicationsForUse",
+        "bounding_box": [
+            59.47919845581055,
+            420.54296875,
+            436.5050048828125,
+            437.5169677734375
+        ],
+        "text": ""
+    },
+    "21____1": {
+        "name": "21____1",
+        "bounding_box": [
+            441.1619873046875,
+            417.3539733886719,
+            454.135009765625,
+            433.6789855957031
+        ],
+        "text": ""
+    },
+    "21____2": {
+        "name": "21____2",
+        "bounding_box": [
+            471.9960021972656,
+            417.8669738769531,
+            485.8070068359375,
+            433.3539733886719
+        ],
+        "text": ""
+    },
+    "21____3": {
+        "name": "21____3",
+        "bounding_box": [
+            499.12799072265625,
+            417.8669738769531,
+            513.7769775390625,
+            433.3539733886719
+        ],
+        "text": ""
+    },
+    "18_TherapyFrom": {
+        "name": "18_TherapyFrom",
+        "bounding_box": [
+            60.2400016784668,
+            444.83697509765625,
+            142.5330047607422,
+            459.2969970703125
+        ],
+        "text": ""
+    },
+    "18_TherapyTo": {
+        "name": "18_TherapyTo",
+        "bounding_box": [
+            172.4759979248047,
+            446.5119934082031,
+            254.7689971923828,
+            460.97198486328125
+        ],
+        "text": ""
+    },
+    "19_TherapyDuration": {
+        "name": "19_TherapyDuration",
+        "bounding_box": [
+            299.0710144042969,
+            444.83697509765625,
+            449.0710144042969,
+            459.2969970703125
+        ],
+        "text": ""
+    },
+    "22 CONCOMITANT DRUGS AND DATES OF ADMINISTRATION exclude those used to treat reaction": {
+        "name": "22 CONCOMITANT DRUGS AND DATES OF ADMINISTRATION exclude those used to treat reaction",
+        "bounding_box": [
+            60.2400016784668,
+            496.6689758300781,
+            531.3599853515625,
+            531.3599853515625
+        ],
+        "text": ""
+    },
+    "23 OTHER RELEVANT HISTORY eg diagnostics allergies pregnancy with last month of period etc": {
+        "name": "23 OTHER RELEVANT HISTORY eg diagnostics allergies pregnancy with last month of period etc",
+        "bounding_box": [
+            60.2400016784668,
+            545.5059814453125,
+            531.3599853515625,
+            579.1199951171875
+        ],
+        "text": ""
+    },
+    "24A_NameOfManufacturer": {
+        "name": "24A_NameOfManufacturer",
+        "bounding_box": [
+            57.8036994934082,
+            612.3839721679688,
+            299.11700439453125,
+            634.3839721679688
+        ],
+        "text": ""
+    },
+    "24a  ADDRESS OF MANUFACTURER": {
+        "name": "24a  ADDRESS OF MANUFACTURER",
+        "bounding_box": [
+            58.79999923706055,
+            653.52001953125,
+            175.9199981689453,
+            677.52001953125
+        ],
+        "text": ""
+    },
+    "24b MFR CONTROL NO": {
+        "name": "24b MFR CONTROL NO",
+        "bounding_box": [
+            178.0800018310547,
+            663.9530029296875,
+            296.3999938964844,
+            677.52001953125
+        ],
+        "text": ""
+    },
+    "24_ManufacturerDetails": {
+        "name": "24_ManufacturerDetails",
+        "bounding_box": [
+            304.0979919433594,
+            613.2219848632812,
+            527.8179931640625,
+            726.5349731445312
+        ],
+        "text": ""
+    },
+    "24c DATE RECEIVED BY MANUFACTURER": {
+        "name": "24c DATE RECEIVED BY MANUFACTURER",
+        "bounding_box": [
+            84.55999755859375,
+            696.4749755859375,
+            169.96800231933594,
+            709.3219604492188
+        ],
+        "text": ""
+    },
+    "DATE OF THIS REPORT": {
+        "name": "DATE OF THIS REPORT",
+        "bounding_box": [
+            84.55999755859375,
+            720.7999877929688,
+            169.96800231933594,
+            733.0399780273438
+        ],
+        "text": ""
+    },
+    "24d_Study": {
+        "name": "24d_Study",
+        "bounding_box": [
+            191.35400390625,
+            684.428955078125,
+            203.49000549316406,
+            697.4029541015625
+        ],
+        "text": ""
+    },
+    "24d_HealthProfessional": {
+        "name": "24d_HealthProfessional",
+        "bounding_box": [
+            191.35400390625,
+            697.8330078125,
+            203.49000549316406,
+            710.8070068359375
+        ],
+        "text": ""
+    },
+    "24d_Literature": {
+        "name": "24d_Literature",
+        "bounding_box": [
+            232.24099731445312,
+            685.428955078125,
+            244.3769989013672,
+            698.4029541015625
+        ],
+        "text": ""
+    },
+    "25____1": {
+        "name": "25____1",
+        "bounding_box": [
+            188.49000549316406,
+            717.93896484375,
+            206.49000549316406,
+            735.93896484375
+        ],
+        "text": ""
+    },
+    "25____2": {
+        "name": "25____2",
+        "bounding_box": [
+            233.72799682617188,
+            717.1009521484375,
+            251.72799682617188,
+            735.1009521484375
+        ],
+        "text": ""
+    }
+}

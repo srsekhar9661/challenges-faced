@@ -1,4 +1,5 @@
 <!-- narrative_crud.html -->
+ {% load my_filters %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,9 +50,10 @@
         <!-- List of narratives -->
         <h2>Narrative List</h2>
         <ul class="list-group">
+            {{narratives|length}}
             {% for narrative in narratives %}
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span>{{ narrative.subject }}</span>
+                <span>{{ narrative.subject|number:'124-74' }}</span>
                 <div>
                     <a href="{% url 'narrative-crud-with-pk' narrative.pk %}" class="btn btn-primary btn-sm">Edit</a>
                     <form method="post" action="{% url 'narrative-crud-with-pk' narrative.pk %}" style="display:inline;">

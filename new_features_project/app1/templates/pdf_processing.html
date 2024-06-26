@@ -19,6 +19,13 @@
             <option value="">--Select a Widget--</option>
         </select>
     </div>
+    <button type="button" id="retreive_original_data" >Retrieve </button>
+    <div class="form-group">
+        <label for="fillable-widgets-2">Select a Widget:</label>
+        <select id="fillable-widgets-2" class="form-control">
+            <option value="">--Select a Widget--</option>
+        </select>
+    </div>
 </div>
 
 <script>
@@ -65,6 +72,22 @@
                 }
             });
         });
+    
+        $('#retreive_original_data').click(
+            $.ajax({
+                url : '{% url "retrieve_data" %}',
+                type: 'GET',
+                success: function(response){
+                    var fillableWidgets = response.fillable_widgets;
+                    var select = $('#fillable-widgets-2');
+                    select.empty();
+                    select.append('<option value="">--Select a Widget--</option>');
+                    fillableWidgets.forEach(function(widget) {
+                        select.append('<option value="' + widget + '">' + widget + '</option>');
+                    });
+                }
+            })
+        )
     });
 </script>
 

@@ -1,0 +1,3 @@
+*.pyc
+new_features_project/app1/__pycache__/
+new_features_project/app1/templatetags/__pycache__/
