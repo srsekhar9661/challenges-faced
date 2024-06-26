@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <h1>Upload File and Select Widgets</h1>
+    
+    <!-- File Upload Form -->
+    <form id="upload-form" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="file-input">Upload a file:</label>
+            <input type="file" id="file-input" name="file" class="form-control">
+        </div>
+    </form>
+
+    <!-- Select Tag for Fillable Widgets -->
+    <div class="form-group">
+        <label for="fillable-widgets">Select a Widget:</label>
+        <select id="fillable-widgets" class="form-control">
+            <option value="">--Select a Widget--</option>
+        </select>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        // Function to get the CSRF token
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        const csrftoken = getCookie('csrftoken');
+
+        $('#file-input').change(function(){
+            var formData = new FormData($('#upload-form')[0]);
+
+            console.log(csrftoken)
+            $.ajax({
+                url: '{% url "upload-file" %}',
+                type: 'POST',
+                headers: {
+                    'X-CSRFToken': csrftoken
+                },
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    var fillableWidgets = response.fillable_widgets;
+                    var select = $('#fillable-widgets');
+                    select.empty();
+                    select.append('<option value="">--Select a Widget--</option>');
+                    fillableWidgets.forEach(function(widget) {
+                        select.append('<option value="' + widget + '">' + widget + '</option>');
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+{% endblock %}

@@ -101,3 +101,52 @@ class NarrativeView(View):
         return redirect('narrative-crud')
 
 
+# views.py
+import json
+from django.http import JsonResponse
+from django.views import View
+from django.core.files.storage import default_storage
+
+class FileUploadView(View):
+    def get(self, request):
+        return render(request, 'pdf_processing.html')
+
+    def post(self, request):
+        uploaded_file = request.FILES['file']
+        file_path = default_storage.save(uploaded_file.name, uploaded_file)
+
+        # Process the file to find fillable widgets
+        fillable_widgets = self.process_file(file_path)
+
+        # Delete the file after processing if necessary
+        default_storage.delete(file_path)
+
+        return JsonResponse({'fillable_widgets': fillable_widgets})
+
+    def process_file(self, file_path):
+        # Replace this with your file processing logic
+        # For example, parse the file and find fillable widgets
+        # Return a list of widget names or IDs
+        import pymupdf
+
+        doc = pymupdf.open(file_path)
+        widgets_list = []
+
+        for page in doc:
+            widgets = page.widgets()
+            if widgets:
+                l =[]
+                for  widget in widgets:
+                    # if widget.field_type
+                    l.append(widget.field_name)
+                    print(f"widget type {widget.field_type}")
+                    print(f"widget field type string {widget.field_type_string}")
+                    print(f"widget label {widget.field_label}")
+                    print(f"widget name {widget.field_name}")
+                    print(f"widget value {widget.field_value}")
+                    print(f"widget choice values {widget.choice_values}")
+                    print(f"widget display {widget.field_display}")
+                    print('*'*50)
+                # widgets_list.extend([widget.field_name for widget in widgets])
+                widgets_list.extend(l)
+        return list(set(widgets_list))
